@@ -27,7 +27,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        run: uv run python src/main.py
+        run: uv run python -m src.main
 
       - name: state.json 변경사항 커밋 & 푸시
         run: |
