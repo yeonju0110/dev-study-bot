@@ -1,0 +1,9 @@
+[project]
+name = "dev-study-bot"
+version = "0.1.0"
+description = "매일 아침 Claude API로 개발 학습 콘텐츠를 생성하고 Discord로 전송하는 자동화 봇"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.86.0",
+    "requests>=2.33.0",
+]

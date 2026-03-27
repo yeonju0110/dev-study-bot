@@ -1,0 +1,42 @@
+name: Daily Dev Study Bot
+
+on:
+  schedule:
+    - cron: '0 23 * * *'  # 매일 KST 08:00 (= UTC 23:00 전날)
+  workflow_dispatch:       # 수동 실행 가능
+
+jobs:
+  send-study-content:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 코드 체크아웃
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: uv 셋업
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: '3.11'
+
+      - name: 의존성 설치
+        run: uv sync --frozen
+
+      - name: 학습 콘텐츠 생성 및 전송
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: uv run python src/main.py
+
+      - name: state.json 변경사항 커밋 & 푸시
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/state.json
+          if git diff --cached --quiet; then
+            echo "state.json 변경 없음 — 커밋 생략"
+          else
+            git commit -m "chore: update study state ($(date -u +%Y-%m-%d))"
+            git push
+          fi
