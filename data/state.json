@@ -1,7 +1,8 @@
 {
   "used": [
     "페이징",
-    "3-way handshake"
+    "3-way handshake",
+    "인덱스"
   ],
   "remaining": [
     "프로세스 vs 스레드",
@@ -20,7 +21,6 @@
     "DNS",
     "로드밸런서",
     "CDN",
-    "인덱스",
     "트랜잭션 ACID",
     "정규화",
     "실행계획",
