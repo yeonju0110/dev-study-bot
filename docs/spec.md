@@ -31,6 +31,7 @@ dev-study-bot/
 │   ├── topics.py       # 주제 로테이션 관리
 │   └── prompts.py      # 시스템 프롬프트 및 유저 프롬프트 템플릿
 ├── data/
+│   ├── topics.json     # 주제 목록 (카테고리별)
 │   └── state.json      # 주제 이력 (repo에 커밋으로 영구 보존)
 ├── pyproject.toml
 └── README.md
@@ -133,7 +134,7 @@ dev-study-bot/
 ### 워크플로우 흐름
 1. uv 셋업 (Python 3.11)
 2. `uv sync --frozen`
-3. `uv run python src/main.py` 실행
+3. `uv run python -m src.main` 실행
 4. `data/state.json` 변경사항 감지
 5. 변경된 경우 repo에 자동 커밋 & push (`chore: update study state (YYYY-MM-DD)`)
 
@@ -151,5 +152,5 @@ dev-study-bot/
 - 외부 라이브러리는 `anthropic`, `requests` 두 개만 사용 (최소 의존성)
 - 모든 코드에 한국어 주석 작성
 - `main.py`는 50줄 이내로 간결하게 유지
-- 하드코딩 금지 — 모든 설정값은 환경변수 또는 `topics.py` 상수로 관리
+- 하드코딩 금지 — 모든 설정값은 환경변수 또는 `data/topics.json`으로 관리
 - 프롬프트는 `prompts.py`에서 단독 관리

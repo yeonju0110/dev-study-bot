@@ -15,7 +15,7 @@ cp .env.example .env
 # .env 파일에 실제 키 입력 (아래 발급 방법 참고)
 
 uv sync
-uv run --env-file .env python src/main.py
+uv run --env-file .env python -m src.main
 ```
 
 ---
@@ -59,13 +59,16 @@ GitHub 저장소 → **Settings → Secrets and variables → Actions → New re
 
 ## 주제 커스터마이징
 
-`src/topics.py`의 `TOPICS` 딕셔너리에서 카테고리와 주제를 자유롭게 추가/수정할 수 있다.
+`data/topics.json`에서 카테고리와 주제를 자유롭게 추가/수정할 수 있다.
 
-```python
-TOPICS = {
-    "OS": ["프로세스 vs 스레드", "컨텍스트 스위칭", ...],
-    "JVM": ["GC 알고리즘", "힙 구조", ...],
-    # 새 카테고리 추가 가능
+```json
+{
+  "OS": ["프로세스 vs 스레드", "컨텍스트 스위칭", ...],
+  "JVM": ["GC 알고리즘", "힙 구조", ...],
+  "네트워크": [...],
+  "데이터베이스": [...],
+  "자료구조/알고리즘": [...],
+  "시스템 설계": [...]
 }
 ```
 
@@ -76,6 +79,25 @@ TOPICS = {
 ## 콘텐츠 / 프롬프트 수정
 
 `src/prompts.py`에서 시스템 프롬프트와 출력 형식을 수정할 수 있다.
+
+---
+
+## 프로젝트 구조
+
+```
+dev-study-bot/
+├── .github/workflows/daily.yml   # GitHub Actions 스케줄
+├── data/
+│   ├── topics.json               # 주제 목록 (카테고리별)
+│   └── state.json                # 주제 순환 상태 (자동 관리)
+├── src/
+│   ├── main.py                   # 진입점 및 전체 워크플로 오케스트레이션
+│   ├── generator.py              # Claude API 콘텐츠 생성
+│   ├── prompts.py                # 시스템/사용자 프롬프트 템플릿
+│   ├── sender.py                 # Discord Webhook 전송
+│   └── topics.py                 # 주제 로딩 및 순환 관리
+└── pyproject.toml
+```
 
 ---
 
