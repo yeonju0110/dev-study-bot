@@ -2,7 +2,8 @@
   "used": [
     "페이징",
     "3-way handshake",
-    "인덱스"
+    "인덱스",
+    "DNS"
   ],
   "remaining": [
     "프로세스 vs 스레드",
@@ -18,7 +19,6 @@
     "메모리 누수",
     "TCP/UDP",
     "HTTP/HTTPS",
-    "DNS",
     "로드밸런서",
     "CDN",
     "트랜잭션 ACID",
