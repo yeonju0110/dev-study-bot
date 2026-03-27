@@ -1,6 +1,6 @@
 import os
 import anthropic
-from prompts import SYSTEM_PROMPT, USER_PROMPT_TEMPLATE
+from .prompts import SYSTEM_PROMPT, USER_PROMPT_TEMPLATE
 
 # Claude API 설정
 MODEL = "claude-sonnet-4-20250514"

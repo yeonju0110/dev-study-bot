@@ -7,3 +7,6 @@ dependencies = [
     "anthropic>=0.86.0",
     "requests>=2.33.0",
 ]
+
+[project.scripts]
+dev-study-bot = "src.main:main"

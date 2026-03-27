@@ -2,9 +2,9 @@ import os
 import sys
 from datetime import date
 
-from topics import load_state, save_state, get_today_topic
-from generator import generate_content, ClaudeAPIError
-from sender import send_content, send_notification
+from .topics import load_state, save_state, get_today_topic
+from .generator import generate_content, ClaudeAPIError
+from .sender import send_content, send_notification
 
 
 def check_env() -> None:

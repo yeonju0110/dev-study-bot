@@ -1,5 +1,6 @@
 import json
 import random
+from datetime import date
 from pathlib import Path
 
 # 주제 파일 경로
@@ -54,7 +55,6 @@ def get_today_topic(state: dict) -> tuple[str, str, dict, bool]:
     remaining.remove(topic)
     used.append(topic)
 
-    from datetime import date
     updated_state = {
         "used": used,
         "remaining": remaining,
