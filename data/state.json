@@ -4,7 +4,8 @@
     "3-way handshake",
     "인덱스",
     "DNS",
-    "트랜잭션 ACID"
+    "트랜잭션 ACID",
+    "CAP 이론"
   ],
   "remaining": [
     "프로세스 vs 스레드",
@@ -34,8 +35,7 @@
     "캐시 전략",
     "메시지 큐",
     "MSA vs 모놀리식",
-    "CAP 이론",
     "샤딩"
   ],
-  "last_updated": "2026-03-28"
+  "last_updated": "2026-03-29"
 }
