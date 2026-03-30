@@ -2,8 +2,8 @@ name: Daily Dev Study Bot
 
 on:
   schedule:
-    - cron: '0 23 * * *'  # 매일 KST 08:00 (= UTC 23:00 전날)
-  workflow_dispatch:       # 수동 실행 가능
+    - cron: '0 22 * * 0-4'  # KST 기준 월~금 오전 07:00 (UTC 일~목 22:00)
+  workflow_dispatch:        # 수동 실행 가능
 
 jobs:
   send-study-content:
