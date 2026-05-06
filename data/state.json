@@ -32,10 +32,9 @@
     "실행계획",
     "N+1 문제",
     "CDN",
-    "세마포어/뮤텍스"
-  ],
-  "remaining": [
+    "세마포어/뮤텍스",
     "TCP/UDP"
   ],
-  "last_updated": "2026-05-05"
+  "remaining": [],
+  "last_updated": "2026-05-06"
 }
