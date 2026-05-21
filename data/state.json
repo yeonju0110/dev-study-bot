@@ -9,7 +9,8 @@
     "클래스 로더",
     "동적 프로그래밍",
     "HTTP/HTTPS",
-    "CDN"
+    "CDN",
+    "3-way handshake"
   ],
   "remaining": [
     "실행계획",
@@ -32,10 +33,9 @@
     "정규화",
     "GC 알고리즘",
     "힙 구조",
-    "3-way handshake",
     "로드밸런서",
     "캐시 전략",
     "메시지 큐"
   ],
-  "last_updated": "2026-05-20"
+  "last_updated": "2026-05-21"
 }
